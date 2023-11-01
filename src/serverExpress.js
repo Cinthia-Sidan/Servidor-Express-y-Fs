@@ -17,7 +17,7 @@ app.get('/products', async (req, res) => {
         const limit = parseInt(req.query.limit) || undefined;
         const products = await productos.getAll();
 
-        // Aplica el límite si se proporciona un valor válido para 'limit'
+        // Aplica el límite si se proporciona un valor válido para 'limit' sino obtiene todos los productos
         const limitedProducts = limit ? products.slice(0, limit) : products;
 
         res.json(limitedProducts);
